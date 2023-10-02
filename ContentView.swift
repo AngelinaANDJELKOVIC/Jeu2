@@ -11,10 +11,19 @@ struct ContentView: View {
     @State var colorText:String = ""
     @State var currentColor:Int = 0
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         VStack {
             Spacer()
-            Text("Color")
+            Text("\(colorText)").onReceive(timer) { value in
+                currentColor = Int.random(in: 1..<3)
+                if currentColor == 1 {
+                    colorText = "bleu"
+                }else{
+                    colorText = "violet"
+                }
+            }
             Spacer()
             HStack {
                 Spacer()
