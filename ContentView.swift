@@ -27,7 +27,6 @@ struct ContentView: View {
                     colorText = "violet"
                 }
             }
-            Spacer()
             if(answer != 0){
                 Text(answer == currentColor ? "Good job !" : "Sorry, try again !").font(.title)
             }
@@ -53,6 +52,12 @@ struct ContentView: View {
                         if(answer == currentColor) {score = score + 1}
                     }
                  Spacer()
+            }
+            Spacer()
+            if(answer != 0) {
+                Image(systemName: answer == currentColor ? "mouth" : "alternatingcurrent")
+                    .imageScale(.large)
+                    .font(.system(size: 68))
             }
             Spacer()
             Text("Your score \(score)")
