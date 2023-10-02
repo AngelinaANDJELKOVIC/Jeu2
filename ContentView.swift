@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State var colorText:String = ""
     @State var currentColor:Int = 0
+    @State var score:Int = 0
+    @State var answer:Int = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -17,6 +19,7 @@ struct ContentView: View {
         VStack {
             Spacer()
             Text("\(colorText)").onReceive(timer) { value in
+                answer = 0
                 currentColor = Int.random(in: 1..<3)
                 if currentColor == 1 {
                     colorText = "bleu"
@@ -32,18 +35,23 @@ struct ContentView: View {
                     .frame(maxWidth: 350)
                     .foregroundColor(.blue)
                     .onTapGesture {
+                        answer = 1
                         print("bleu")
+                        if(answer == currentColor) {score = score + 1}
                     }
                 Rectangle()
                     .frame(height: 100)
                     .frame(maxWidth: 350)
                     .foregroundColor(.purple)
                     .onTapGesture {
+                        answer = 2
                         print("violet")
+                        if(answer == currentColor) {score = score + 1}
                     }
                  Spacer()
             }
             Spacer()
+            Text("Your score \(score)")
             Spacer()
         }
         .padding()
