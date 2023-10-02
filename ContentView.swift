@@ -16,11 +16,17 @@ struct ContentView: View {
                     .frame(height: 100)
                     .frame(maxWidth: 350)
                     .foregroundColor(.blue)
+                    .onTapGesture {
+                        print("bleu")
+                    }
                 Rectangle()
                     .frame(height: 100)
                     .frame(maxWidth: 350)
                     .foregroundColor(.purple)
-                Spacer()
+                    .onTapGesture {
+                        print("violet")
+                    }
+                 Spacer()
             }
         }
         .padding()
