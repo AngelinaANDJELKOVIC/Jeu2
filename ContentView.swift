@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var colorText:String = ""
+    @State var currentColor:Int = 0
+    
     var body: some View {
         VStack {
+            Spacer()
+            Text("Color")
+            Spacer()
             HStack {
                 Spacer()
                 Rectangle()
@@ -28,6 +34,8 @@ struct ContentView: View {
                     }
                  Spacer()
             }
+            Spacer()
+            Spacer()
         }
         .padding()
     }
