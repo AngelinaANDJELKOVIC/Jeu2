@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("\(colorText)").onReceive(timer) { value in
+            Text("\(colorText)").font(.largeTitle).onReceive(timer) { value in
                 answer = 0
                 currentColor = Int.random(in: 1..<3)
                 if currentColor == 1 {
@@ -26,6 +26,10 @@ struct ContentView: View {
                 }else{
                     colorText = "violet"
                 }
+            }
+            Spacer()
+            if(answer != 0){
+                Text(answer == currentColor ? "Good job !" : "Sorry, try again !").font(.title)
             }
             Spacer()
             HStack {
